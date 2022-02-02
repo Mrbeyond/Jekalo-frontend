@@ -1,38 +1,153 @@
-.App {
+*{
+  outline:none;
+  font-size: 99%;
+
+}
+
+.App{
+  display: block;
+  padding: 30px 10%;
+}
+
+.form-cover{
+  margin-bottom:30px;
+}
+
+.response{
+  margin-bottom: 10px;
+}
+
+label{
+  color: #312293;
+  display:block
+}
+
+.button-grid{
+  padding-top: 18px;
+}
+
+input.form-control{
+  width: 200px;
+  line-height: 35px;
+  font-size: 14px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc
+}
+
+button{
+  background: #312293;
+  color: white;
+  font-size: 16px;
+  width: 200px;
+  line-height: 40px;
+  border-radius: 5px;
+  border:none;
+  
+}
+
+small{
+  display:block;
+  color: #880000;
+}
+
+table{
+  width:100%
+}
+td{
+  width:15%;
+}
+
+td.fullname{
+  width:30%;
+}
+
+.prefix{
+  background: #312293;
+  display:flex;
+  color:white;
+  padding: 4px;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.trash{
+  cursor: pointer;
+}
+
+.head{
+  background: #f5f7fb;
+  display: block;
+  line-height: 30px;
+  height: 40px;
+  padding-left: 10px;
+  margin: 10px 0px;
+}
+
+.end-list{
+  text-align: right;
+}
+
+.wentwrong{
+  color: #880000;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-grid, .control-grid{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-gap: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+/* @media */
+
+@media screen and (max-width: 400px) {
+  .form-grid, .control-grid{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .App{
+    padding: 30px 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 400px) and (max-width: 750px) {
+  .form-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .control-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4px;
+  }
+
+  .button-grid{
+    display:flex;
+    justify-content: center;
+    padding-top: 0px;
+  }
+
+  input.form-control{
+    width: 200px;
+  }
+
+  .App{
+    padding: 30px 2%;
   }
 }
