@@ -5,7 +5,8 @@ const PROXY = "https://jekaloapitest.herokuapp.com/api/user";
 
 
 
-const UserForm=()=>{
+const UserForm=({newUser})=>{
+
   const [invalidator, setInvalidator] = useState({});
   const [processing, setProcessing] = useState(false);
   const [response, setResponse] = useState(null);
@@ -27,7 +28,6 @@ const UserForm=()=>{
     let payload = {last_name: target.last_name.value};
 
     checkers.forEach(async(element) => {
-      // console.log(target[element]);
       if(!target[element]['value'] || !target[element]['value'].trim()){
         await setInvalidator((prev)=> ({...prev, [element]: true}));
       }else{
@@ -42,14 +42,15 @@ const UserForm=()=>{
     });
 
     let validator = Object.entries(invalidator);
-    console.log(validator);
     if(validator.flat().includes(true) || !validator.length) return;
+
     try {
       setProcessing(true);
       setResponse(null);
       let {data} = await axios.post(PROXY, payload)
       
-      console.log(data);
+      console.log(newUser);
+      await newUser(data);
       setResponse({error:false, message: "User Successfully added"})
       
     } catch (error) {

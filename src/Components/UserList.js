@@ -4,11 +4,17 @@ import trash from "./../trash.svg";
 
 const PROXY = "https://jekaloapitest.herokuapp.com/api";
 
-const UserList = ()=>{
+const UserList = ({_newUser})=>{
   let [users, setUsers] = useState(null);
   let [processing, setProcessing] = useState(false);
   let [wentWrong, setWentWrong] = useState(false);
 
+  useEffect(()=>{
+    if(!_newUser) return;
+    setUsers((prev)=>[...prev, _newUser]);
+  },[_newUser]);
+
+  
   useEffect(()=>{
     axios.get(`${PROXY}/users`).then(data=>{
       console.log(data)
